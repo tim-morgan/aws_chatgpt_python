@@ -133,5 +133,3 @@ data/
 # output files
 output/
 
-# HTML reports
-*.html

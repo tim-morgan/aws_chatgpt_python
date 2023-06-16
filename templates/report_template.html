@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Report: {{ account_id }}</title>
+</head>
+<body>
+    <h1>Metadata for Account ID: {{ account_id }}</h1>
+    <p>Account Alias: {{ metadata['AccountAlias'] }}</p>
+    <p>Description: {{ metadata['Description'] }}</p>
+    <p>Provision Date: {{ metadata['ProvisionDate'] }}</p>
+    <p>Admin Contacts: {{ metadata['AdminContacts'] }}</p>
+    <p>Technical Contacts: {{ metadata['TechnicalContacts'] }}</p>
+    <p>Business Contacts: {{ metadata['BusinessContacts'] }}</p>
+    
+    <h2>Cost data for the past six months:</h2>
+    {% for cost in costs | reverse %}
+        <p>{{ cost['month'] }}: ${{ '%.2f' | format(cost['amount']) }}</p>
+    {% endfor %}
+</body>
+</html>
